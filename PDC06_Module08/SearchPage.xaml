@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PDC06_Module08.SearchPage"
+         >
+    <ContentPage.Content>
+        
+     
+        <StackLayout>
+            <Entry x:Name="xSearchBar" Placeholder="Search" TextChanged="OnSearchTextchanged"></Entry>
+
+            <StackLayout>
+          
+                <ListView x:Name="Post_list2">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnMore" CommandParameter="{Binding ID}" Text="Update" />
+                         
+                                    <MenuItem Clicked="OnDelete" CommandParameter="{Binding ID}" Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+
+                                <StackLayout Padding="15,0">
+                                    <Label TextColor="Black">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Name: " FontAttributes="Bold" />
+                                                <Span Text="{Binding username}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label TextColor="Black">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Section: " FontAttributes="Bold" />
+                                                <Span Text="{Binding section}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout> 
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
